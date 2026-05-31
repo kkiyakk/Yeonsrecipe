@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.recipe-form {
+    margin: 50px auto;
+    padding: 25px;
+    background-color: #ffffff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.recipe-form h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.recipe-form input[type="text"] {
+    margin-bottom: 13px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.subheading {
+    display: block;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#cuisine,
+#language {
+    margin-bottom: 20px;
+}
+
+.checkbox-container {
+    width: 100%;
+    border: 1px solid #cccccc;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 13px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.checkbox-group {
+    width: 48%;
+    margin-bottom: 10px;
+}
+
+.checkbox-label {
+    font-size: 16px;
+}
+
+input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.page-header {
+    max-width: 850px;
+    margin: 50px auto;
+    padding: 25px;
+    background-color: #ffffff;
+    border-radius: 8px;
+}
+
+footer {
+    text-align: center;
+    margin: 30px 0;
+    color: #777777;
+}
+
+@media (max-width: 576px) {
+    .checkbox-group {
+        width: 100%;
+    }
+
+    .recipe-form {
+        margin-top: 25px;
+    }
+}

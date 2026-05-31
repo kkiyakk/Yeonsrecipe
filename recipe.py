@@ -13,7 +13,7 @@ model = genai.GenerativeModel("gemini-2.5-flash")
 
 
 cuisines = [
-    "",
+    "Korean",
     "Italian",
     "Mexican",
     "Chinese",

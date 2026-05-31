@@ -1,55 +1,49 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <title>Recipe Generator</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
+{% extends "base.html" %}
 
-<body>
-    <form action="/generate_recipe" method="post">
-        <h2>Input 3 Ingredients</h2>
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-5">
+            <form action="/generate_recipe" method="post" class="recipe-form">
+                <h2>Input 3 Ingredients</h2>
 
-        <input type="text" name="ingredient" placeholder="Ingredient 1" required>
-        <input type="text" name="ingredient" placeholder="Ingredient 2" required>
-        <input type="text" name="ingredient" placeholder="Ingredient 3" required>
+                <input type="text" name="ingredient" class="form-control" placeholder="Ingredient 1" required>
+                <input type="text" name="ingredient" class="form-control" placeholder="Ingredient 2" required>
+                <input type="text" name="ingredient" class="form-control" placeholder="Ingredient 3" required>
 
-        <label class="subheading" for="cuisine">Choose a cuisine:</label>
-        <select name="cuisine" id="cuisine">
-            {% for cuisine in cuisines %}
-                <option value="{{ cuisine }}">
-                    {{ cuisine }}
-                </option>
-            {% endfor %}
-        </select>
+                <label class="subheading" for="cuisine">Choose a cuisine:</label>
+                <select name="cuisine" id="cuisine" class="form-select">
+                    {% for cuisine in cuisines %}
+                        <option value="{{ cuisine }}">{{ cuisine }}</option>
+                    {% endfor %}
+                </select>
 
-        <label class="subheading" for="restrictions">Dietary Restrictions:</label>
-        <div class="checkbox-container">
-            {% for restriction in dietary_restrictions %}
-                <div class="checkbox-group">
-                    <label class="checkbox-label">
-                        <input
-                            type="checkbox"
-                            name="restrictions"
-                            value="{{ restriction }}"
-                        />
-                        {{ restriction }}
-                    </label>
+                <label class="subheading" for="restrictions">Dietary Restrictions:</label>
+                <div class="checkbox-container">
+                    {% for restriction in dietary_restrictions %}
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input
+                                    type="checkbox"
+                                    name="restrictions"
+                                    value="{{ restriction }}"
+                                >
+                                {{ restriction }}
+                            </label>
+                        </div>
+                    {% endfor %}
                 </div>
-            {% endfor %}
+
+                <label class="subheading" for="language">Choose a language:</label>
+                <select name="language" id="language" class="form-select">
+                    {% for language, code in languages.items() %}
+                        <option value="{{ language }}">{{ language }}</option>
+                    {% endfor %}
+                </select>
+
+                <input type="submit" value="Generate Recipe" class="btn btn-primary w-100">
+            </form>
         </div>
-
-        <label class="subheading" for="language">Choose a language:</label>
-        <select name="language" id="language">
-            {% for language, code in languages.items() %}
-                <option value="{{ language }}">
-                    {{ language }}
-                </option>
-            {% endfor %}
-        </select>
-
-        <input type="submit" value="Generate Recipe">
-    </form>
-</body>
-<p>2023810087 황재연 </p>
-</html>
+    </div>
+</div>
+{% endblock %}
